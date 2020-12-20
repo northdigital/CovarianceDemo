@@ -6,7 +6,7 @@ namespace Tutor01
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<T> where T : class {}
+  interface IMyInterface<T> where T : Animal {}
 
   class MyAnimalClass : IMyInterface<Animal> {}
   class MyDogClass : IMyInterface<Dog> {}

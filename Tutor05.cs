@@ -7,5 +7,5 @@ namespace Tutor05
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T> where T : class { T Test(T p); } // T cannot be used as a parameter.
+  interface IMyInterface<out T> where T : Animal { T Test(T p); } // T cannot be used as a parameter.
 }

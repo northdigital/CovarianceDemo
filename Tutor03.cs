@@ -9,7 +9,7 @@ namespace Tutor03
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T> where T : class {}
+  interface IMyInterface<out T> where T : Animal {}
 
   class MyAnimalClass : IMyInterface<Animal> {}
   class MyDogClass : IMyInterface<Dog> {}

@@ -7,7 +7,7 @@ namespace Tutor04
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T> where T : class { T Test(); }
+  interface IMyInterface<out T> where T : Animal { T Test(); }
 
   class MyAnimalClass : IMyInterface<Animal> { public Animal Test() { return null; } }
   class MyDogClass : IMyInterface<Dog> { public Dog Test() { return null; } }
