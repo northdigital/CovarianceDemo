@@ -16,6 +16,7 @@ namespace Tutor01
     static void Main(string[] args)
     {
       { IMyInterface<Animal> v = new MyAnimalClass(); }
+      { IMyInterface<Dog> v = new MyDogClass(); }
     }
   }
 }
