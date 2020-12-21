@@ -5,7 +5,7 @@ namespace Tutor04
 
   interface IMyInterface<out R> where R : Animal
   {
-    R Test(); // Function Test is added to the interface and implemented accordingly in respected classes. Test return a R.
+    R Test();
   }
 
   class MyAnimal : IMyInterface<Animal> { public Animal Test() { return null; } }

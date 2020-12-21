@@ -6,7 +6,7 @@ namespace Tutor07
   interface IMyInterface<out R, P> where R : Animal
                                    where P : R
   {
-    R Test(P p); // the error R cannot be used as a parameter is fixed.
+    R Test(P p);
   }
 
   class MyAnimal : IMyInterface<Animal, Animal> { public Animal Test(Animal p) { return p; } }

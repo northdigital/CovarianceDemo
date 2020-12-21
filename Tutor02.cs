@@ -12,7 +12,7 @@ namespace Tutor02
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal> v = new MyDog(); } // MyDog implements IMyInterface for Dog and not for required Animal
+      { IMyInterface<Animal> v = new MyDog(); }
     }
   }
 }

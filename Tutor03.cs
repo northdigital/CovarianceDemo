@@ -12,7 +12,7 @@ namespace Tutor03
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal> v = new MyDog(); } // since R is defined with out keyword, it can be either the exact type or a concrete type.
+      { IMyInterface<Animal> v = new MyDog(); }
     }
   }
 }

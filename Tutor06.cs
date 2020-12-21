@@ -6,6 +6,6 @@ namespace Tutor06
   interface IMyInterface<out R, P> where R : Animal
                                    where P : R
   {
-    R Test(P p); // the error R cannot be used as a parameter is fixed.
+    R Test(P p);
   }
 }
