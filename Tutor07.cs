@@ -16,15 +16,15 @@ namespace Tutor07
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal, Animal> v = new MyAnimalClass(); }
-      { IMyInterface<Animal, Dog> v = new MyAnimalClass(); } // * Animal cannot be converted to Dog (where) & MyAnimalClass accepts an Animal parameter, not a Dog.
-      { IMyInterface<Dog, Animal> v = new MyAnimalClass(); } // MyAnimalClass returns Animal not a Dog
-      { IMyInterface<Dog, Dog> v = new MyAnimalClass(); } // requires a dog parameter && must return Dog or inherited
+      { IMyInterface<Animal, Animal> v = new MyAnimalClass(); } // 1
+      { IMyInterface<Animal, Dog> v = new MyAnimalClass(); }    // 2 * Animal cannot be converted to Dog (where) & MyAnimalClass accepts an Animal parameter, not a Dog.
+      { IMyInterface<Dog, Animal> v = new MyAnimalClass(); }    // 3 MyAnimalClass returns Animal not a Dog
+      { IMyInterface<Dog, Dog> v = new MyAnimalClass(); }       // 4 requires a dog parameter && must return Dog or inherited
 
-      { IMyInterface<Animal, Animal> v = new MyDogClass(); } // MyDog requires a Dog parameter
-      { IMyInterface<Animal, Dog> v = new MyDogClass(); } // <-> Animal cannot be converted to Dog (where)
-      { IMyInterface<Dog, Animal> v = new MyDogClass(); } // MyDog requires a Dog parameter and Animal cannot be converted to Dog
-      { IMyInterface<Dog, Dog> v = new MyDogClass(); }
+      { IMyInterface<Animal, Animal> v = new MyDogClass(); }    // 5 MyDog requires a Dog parameter
+      { IMyInterface<Animal, Dog> v = new MyDogClass(); }       // 6 <-> Animal cannot be converted to Dog (where)
+      { IMyInterface<Dog, Animal> v = new MyDogClass(); }       // 7 MyDog requires a Dog parameter and Animal cannot be converted to Dog
+      { IMyInterface<Dog, Dog> v = new MyDogClass(); }          // 8
     }
   }
 }
