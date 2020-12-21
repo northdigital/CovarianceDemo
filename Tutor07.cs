@@ -18,7 +18,8 @@ namespace Tutor07
     {
       // 1. Validate the where constraint
       // 2. out generic type -> right inherits left
-      // 3. any other generic type -> left = right
+      // 3. in generic type -> left inherits right
+      // 4. any other generic type -> left = right
       { IMyInterface<Animal, Animal> v = new MyAnimal(); } // +1 +2 +3
       { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 -3
       { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // -1 -2 +3
