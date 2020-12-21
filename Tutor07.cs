@@ -16,15 +16,20 @@ namespace Tutor07
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal, Animal> v = new MyAnimal(); }
-      { IMyInterface<Animal, Dog> v = new MyAnimal(); }
-      { IMyInterface<Dog, Animal> v = new MyAnimal(); }
-      { IMyInterface<Dog, Dog> v = new MyAnimal(); }
+      /*
+       * 1. Validate the where constraint
+       * 2. For the out generic type (R), right inherits left
+       * 3. for the other generic types (P), left = right
+       */
+      { IMyInterface<Animal, Animal> v = new MyAnimal(); } // +1 +2 +3
+      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 -3
+      { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // -1 -2 +3
+      { IMyInterface<Dog, Dog> v = new MyAnimal(); }       // +1 -2 -3
 
-      { IMyInterface<Animal, Animal> v = new MyDog(); }
-      { IMyInterface<Animal, Dog> v = new MyDog(); }
-      { IMyInterface<Dog, Animal> v = new MyDog(); }
-      { IMyInterface<Dog, Dog> v = new MyDog(); }
+      { IMyInterface<Animal, Animal> v = new MyDog(); }    // +1 +2 -3
+      { IMyInterface<Animal, Dog> v = new MyDog(); }       // +1 +2 +3
+      { IMyInterface<Dog, Animal> v = new MyDog(); }       // -1 +2 -3
+      { IMyInterface<Dog, Dog> v = new MyDog(); }          // +1 +2 -3
     }
   }
 }

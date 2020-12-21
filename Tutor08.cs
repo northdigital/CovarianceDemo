@@ -6,7 +6,7 @@ namespace Tutor08
   interface IMyInterface<out R, in P> where R : Animal
                                       where P : R
   {
-    R Test(P t);
+    R Test(P p);
   }
 
   class MyAnimal : IMyInterface<Animal, Animal> { public Animal Test(Animal p) { return p; } }
@@ -16,15 +16,20 @@ namespace Tutor08
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal, Animal> v = new MyAnimal(); }
-      { IMyInterface<Animal, Dog> v = new MyAnimal(); }
-      { IMyInterface<Dog, Animal> v = new MyAnimal(); }
-      { IMyInterface<Dog, Dog> v = new MyAnimal(); }
+      /*
+       * 1. Validate the where constraint
+       * 2. For the out generic type (R), right inherits left
+       * 3. for the other generic types (P), left inherits right
+       */
+      { IMyInterface<Animal, Animal> v = new MyAnimal(); } // +1 +2 +3
+      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 -3
+      { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // -1 -2 +3
+      { IMyInterface<Dog, Dog> v = new MyAnimal(); }       // +1 -2 -3
 
-      { IMyInterface<Animal, Animal> v = new MyDog(); }
-      { IMyInterface<Animal, Dog> v = new MyDog(); }
-      { IMyInterface<Dog, Animal> v = new MyDog(); }
-      { IMyInterface<Dog, Dog> v = new MyDog(); }
+      { IMyInterface<Animal, Animal> v = new MyDog(); }    // +1 +2 -3
+      { IMyInterface<Animal, Dog> v = new MyDog(); }       // +1 +2 +3
+      { IMyInterface<Dog, Animal> v = new MyDog(); }       // -1 +2 -3
+      { IMyInterface<Dog, Dog> v = new MyDog(); }          // +1 +2 -3
     }
   }
 }
