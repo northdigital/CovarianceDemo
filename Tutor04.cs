@@ -1,15 +1,11 @@
-/*
- * function Test is added to the interface and implemented accordingly in respected classes.
- * Test returns T.
- */
 namespace Tutor04
 {
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T> where T : Animal
+  interface IMyInterface<out R> where R : Animal
   {
-    T Test();
+    R Test(); // Function Test is added to the interface and implemented accordingly in respected classes. Test return a R.
   }
 
   class MyAnimalClass : IMyInterface<Animal> { public Animal Test() { return null; } }

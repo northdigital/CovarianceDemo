@@ -1,11 +1,8 @@
-/*
- * When we try to use the T generic type as a parameter we get an error.
- * Generic types defined with the out keyword can be used only as return values and not as parameters.
- */
 namespace Tutor05
 {
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T> where T : Animal { T Test(T p); } // T cannot be used as a parameter.
+  // The generic parameter defined with the out keyword cannot be used as a parameter but only as return value.
+  interface IMyInterface<out R> where R : Animal { R Test(R p); }
 }

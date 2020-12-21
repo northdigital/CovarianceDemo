@@ -1,16 +1,12 @@
-/*
- * have a look ate the return type and parameter of the Test function
- */
 namespace Tutor09
 {
   public class Animal { }
   public class Dog : Animal { }
 
-  interface IMyInterface<out T, in P> where T : Animal
-                                      where P : T
-
+  interface IMyInterface<out R, in P> where R : Animal
+                                      where P : R
   {
-    T Test(P t);
+    R Test(P t);
   }
 
 
