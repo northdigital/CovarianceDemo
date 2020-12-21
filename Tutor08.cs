@@ -16,13 +16,12 @@ namespace Tutor08
   {
     static void Main(string[] args)
     {
-      /*
-       * 1. Validate the where constraint
-       * 2. For the out generic type (R), right inherits left
-       * 3. for the other generic types (P), left inherits right
-       */
+      // 1. Validate the where constraint
+      // 2. out generic type -> right inherits left
+      // 3. in generic type -> left inherits right
+      // 4. any other generic type -> left = right
       { IMyInterface<Animal, Animal> v = new MyAnimal(); } // +1 +2 +3
-      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 -3
+      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 +3 SUCCEEDS!
       { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // -1 -2 +3
       { IMyInterface<Dog, Dog> v = new MyAnimal(); }       // +1 -2 -3
 
