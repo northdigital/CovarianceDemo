@@ -27,7 +27,7 @@ namespace Tutor07
       { IMyInterface<Animal, Animal> v = new MyDog(); }    // <Dog, Dog> +1 +2 -3
       { IMyInterface<Animal, Dog> v = new MyDog(); }       // <Dog, Dog> +1 +2 +3
       { IMyInterface<Dog, Animal> v = new MyDog(); }       // <Dog, Dog> -1 +2 -3
-      { IMyInterface<Dog, Dog> v = new MyDog(); }          // <Dog, Dog> +1 +2 -3
+      { IMyInterface<Dog, Dog> v = new MyDog(); }          // <Dog, Dog> +1 +2 +3
     }
   }
 }
