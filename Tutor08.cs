@@ -1,11 +1,3 @@
-/*
- * Interface v = ImplementationClassVariable
- *
- * in the implementation
- *  (1) R can be the same or inherit from the inteface R because of the out keyword
- *  (2) P can be the same or a base class of the inteface P because of the in keyword
- *  (3) P must be of the same type as R or inherit from R because of the where clause
- */
 namespace Tutor08
 {
   public class Animal { }
@@ -13,7 +5,6 @@ namespace Tutor08
 
   interface IMyInterface<out R, in P> where R : Animal
                                       where P : R
-
   {
     R Test(P t);
   }
@@ -26,13 +17,13 @@ namespace Tutor08
     static void Main(string[] args)
     {
       { IMyInterface<Animal, Animal> v = new MyAnimalClass(); }
-      { IMyInterface<Animal, Dog> v = new MyAnimalClass(); }
-      { IMyInterface<Dog, Animal> v = new MyAnimalClass(); } // -(3) -(1)
-      { IMyInterface<Dog, Dog> v = new MyAnimalClass(); } // (-1)
+      { IMyInterface<Animal, Dog> v = new MyAnimalClass(); } // *
+      { IMyInterface<Dog, Animal> v = new MyAnimalClass(); } // Animal is not a Dog (where) && MyAnimalClass returns an Animal not a Dog.
+      { IMyInterface<Dog, Dog> v = new MyAnimalClass(); } // MyAnimalClass requires an Animal parameter && returns an Animal.
 
-      { IMyInterface<Animal, Animal> v = new MyDogClass(); } // (-2)
-      { IMyInterface<Animal, Dog> v = new MyDogClass(); }
-      { IMyInterface<Dog, Animal> v = new MyDogClass(); } // (-3) (-2)
+      { IMyInterface<Animal, Animal> v = new MyDogClass(); } // MyDog requires a Dog parameter & returns a Dog.
+      { IMyInterface<Animal, Dog> v = new MyDogClass(); } // <->
+      { IMyInterface<Dog, Animal> v = new MyDogClass(); } // Animal is not a Dog (where) && MyDogClass requires a Dog parameter.
       { IMyInterface<Dog, Dog> v = new MyDogClass(); }
     }
   }
