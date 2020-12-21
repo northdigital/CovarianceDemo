@@ -19,15 +19,15 @@ namespace Tutor07
       // 1. Validate the where constraint
       // 2. out generic type -> right inherits left
       // 3. any other generic type -> left = right
-      { IMyInterface<Animal, Animal> v = new MyAnimal(); } // +1 +2 +3
-      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // +1 +2 -3
-      { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // -1 -2 +3
-      { IMyInterface<Dog, Dog> v = new MyAnimal(); }       // +1 -2 -3
+      { IMyInterface<Animal, Animal> v = new MyAnimal(); } // <Animal, Animal> +1 +2 +3
+      { IMyInterface<Animal, Dog> v = new MyAnimal(); }    // <Animal, Animal> +1 +2 -3
+      { IMyInterface<Dog, Animal> v = new MyAnimal(); }    // <Animal, Animal> -1 -2 +3
+      { IMyInterface<Dog, Dog> v = new MyAnimal(); }       // <Animal, Animal> +1 -2 -3
 
-      { IMyInterface<Animal, Animal> v = new MyDog(); }    // +1 +2 -3
-      { IMyInterface<Animal, Dog> v = new MyDog(); }       // +1 +2 +3
-      { IMyInterface<Dog, Animal> v = new MyDog(); }       // -1 +2 -3
-      { IMyInterface<Dog, Dog> v = new MyDog(); }          // +1 +2 -3
+      { IMyInterface<Animal, Animal> v = new MyDog(); }    // <Dog, Dog> +1 +2 -3
+      { IMyInterface<Animal, Dog> v = new MyDog(); }       // <Dog, Dog> +1 +2 +3
+      { IMyInterface<Dog, Animal> v = new MyDog(); }       // <Dog, Dog> -1 +2 -3
+      { IMyInterface<Dog, Dog> v = new MyDog(); }          // <Dog, Dog> +1 +2 -3
     }
   }
 }
