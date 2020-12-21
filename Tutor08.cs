@@ -9,22 +9,22 @@ namespace Tutor08
     R Test(P t);
   }
 
-  class MyAnimalClass : IMyInterface<Animal, Animal> { public Animal Test(Animal p) { return p; } }
-  class MyDogClass : IMyInterface<Dog, Dog> { public Dog Test(Dog p) { return p; } }
+  class MyAnimal : IMyInterface<Animal, Animal> { public Animal Test(Animal p) { return p; } }
+  class MyDog : IMyInterface<Dog, Dog> { public Dog Test(Dog p) { return p; } }
 
   class Tutor
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal, Animal> v = new MyAnimalClass(); }
-      { IMyInterface<Animal, Dog> v = new MyAnimalClass(); } // *
-      { IMyInterface<Dog, Animal> v = new MyAnimalClass(); } // Animal is not a Dog (where) && MyAnimalClass returns an Animal not a Dog.
-      { IMyInterface<Dog, Dog> v = new MyAnimalClass(); } // MyAnimalClass requires an Animal parameter && returns an Animal.
+      { IMyInterface<Animal, Animal> v = new MyAnimal(); }
+      { IMyInterface<Animal, Dog> v = new MyAnimal(); }
+      { IMyInterface<Dog, Animal> v = new MyAnimal(); }
+      { IMyInterface<Dog, Dog> v = new MyAnimal(); }
 
-      { IMyInterface<Animal, Animal> v = new MyDogClass(); } // MyDog requires a Dog parameter & returns a Dog.
-      { IMyInterface<Animal, Dog> v = new MyDogClass(); } // <->
-      { IMyInterface<Dog, Animal> v = new MyDogClass(); } // Animal is not a Dog (where) && MyDogClass requires a Dog parameter.
-      { IMyInterface<Dog, Dog> v = new MyDogClass(); }
+      { IMyInterface<Animal, Animal> v = new MyDog(); }
+      { IMyInterface<Animal, Dog> v = new MyDog(); }
+      { IMyInterface<Dog, Animal> v = new MyDog(); }
+      { IMyInterface<Dog, Dog> v = new MyDog(); }
     }
   }
 }

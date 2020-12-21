@@ -8,14 +8,14 @@ namespace Tutor04
     R Test(); // Function Test is added to the interface and implemented accordingly in respected classes. Test return a R.
   }
 
-  class MyAnimalClass : IMyInterface<Animal> { public Animal Test() { return null; } }
-  class MyDogClass : IMyInterface<Dog> { public Dog Test() { return null; } }
+  class MyAnimal : IMyInterface<Animal> { public Animal Test() { return null; } }
+  class MyDog : IMyInterface<Dog> { public Dog Test() { return null; } }
 
   class Tutor
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal> v = new MyDogClass(); }
+      { IMyInterface<Animal> v = new MyDog(); }
     }
   }
 }

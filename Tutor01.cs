@@ -5,15 +5,15 @@ namespace Tutor01
 
   interface IMyInterface<R> where R : Animal {}
 
-  class MyAnimalClass : IMyInterface<Animal> {}
-  class MyDogClass : IMyInterface<Dog> {}
+  class MyAnimal : IMyInterface<Animal> {}
+  class MyDog : IMyInterface<Dog> {}
 
   class Tutor
   {
     static void Main(string[] args)
     {
-      { IMyInterface<Animal> v = new MyAnimalClass(); }
-      { IMyInterface<Dog> v = new MyDogClass(); }
+      { IMyInterface<Animal> v = new MyAnimal(); }
+      { IMyInterface<Dog> v = new MyDog(); }
     }
   }
 }
